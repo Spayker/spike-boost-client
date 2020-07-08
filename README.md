@@ -30,3 +30,5 @@ All tests are rotating around working with rest-end points. Last ones can be div
 4) sending of training data on server
 5) receiving of updated neural-network and further its applying
 
+## License
+MIT
