@@ -1,6 +1,7 @@
 # SpikeBoost Client Part
 
 Project stays in the active phaze of development. Android platform was chosen as a main test stand.
+Trello board: https://trello.com/b/VbXjLqyG/sbp-mobile
 
 ## Description
 Client side of SpikeBoost includes several screens to provide end user with next features:
