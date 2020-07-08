@@ -1,3 +1,5 @@
+[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Spayker/spike-boost-client/blob/master/LICENSE)
+
 # SpikeBoost Client Part
 
 Project stays in the active phaze of development. Android platform was chosen as a main test stand.
