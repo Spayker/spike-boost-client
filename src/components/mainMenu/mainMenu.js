@@ -6,8 +6,13 @@ import MediaList from './tab/mediaList/mediaList';
 import Account from './tab/account/account';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+
+/**
+ * Main menu component with 3 nested tabs: home, medialist, account
+ */
 export default class MainMenu extends React.Component {
 
+  // meta information setup for each avaialable tab
   tabs = [
     {
       key: 'home',
@@ -36,10 +41,18 @@ export default class MainMenu extends React.Component {
     activeTab: this.tabs[0].key
   }
 
+  /**
+   * Renders icon component with predefined icon media (image). Last one is taken from MaterialCommunityIcons repo.
+   * Returns: nothing
+   */
   renderIcon = icon => ({ isActive }) => (
       <Icon size={24} style={{ color: isActive ? '#EC5805' : 'white' }} name={icon} />
   )
  
+  /**
+   * Renders full tab component once active tab state has been changed.
+   * Returns: nothing
+   */
   renderTab = ({ tab, isActive }) => (
     <FullTab
       isActive={isActive}

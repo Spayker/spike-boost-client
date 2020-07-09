@@ -4,11 +4,10 @@ import { Button, View, Image, Text, TextInput, TouchableOpacity } from 'react-na
 // import AsyncStorage from '@react-native-community/async-storage';
 import styles from "../../styles.js";
 
+/**
+ * Component describes sign up screen. Contains couple fields and link to Sign In screen if an user has been already registered in system. 
+ */
 export default class SignUpEmail extends React.Component {
-
-  doSomeStuff(){
-
-  }
 
   render() {
     return (

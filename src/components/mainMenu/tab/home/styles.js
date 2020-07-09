@@ -1,5 +1,8 @@
 import { StyleSheet } from 'react-native';
 
+/**
+ * Home tab component styles component
+ */
 export default styles = StyleSheet.create({
 
     container: {

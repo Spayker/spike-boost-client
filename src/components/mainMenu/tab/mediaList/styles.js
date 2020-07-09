@@ -1,5 +1,8 @@
 import { StyleSheet } from 'react-native';
 
+/**
+ * MediaList tab component styles component
+ */
 export default styles = StyleSheet.create({
 
     container:{

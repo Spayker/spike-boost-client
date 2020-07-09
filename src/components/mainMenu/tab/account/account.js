@@ -4,6 +4,10 @@ import FastImage from 'react-native-fast-image'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import styles from './styles';
 
+/**
+ * The component below appears when main menu is displayed and Account Settings tab is selected.
+ * Contains main user related settings.
+ */
 export default class Account extends React.Component {
 
     constructor(props) {
