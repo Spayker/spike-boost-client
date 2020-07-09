@@ -1,5 +1,9 @@
 import { StyleSheet } from 'react-native';
 
+/**
+ * Styles list for outdated dashboard component
+ * ToDo: remove it together with Dashboard
+ */
 export default styles = StyleSheet.create({
     container: {
         flex: 1,

@@ -1,10 +1,10 @@
 import React from 'react'
 import {View, Dimensions, TouchableOpacity, Alert, Text, PermissionsAndroid, AsyncStorage} from 'react-native'
-import globals from '../../../common/globals'
+// import globals from '../../../common/globals'
 import MapView, { Marker } from "react-native-maps"
 import Geolocation from 'react-native-geolocation-service'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import * as Progress from 'react-native-progress'
+// import * as Progress from 'react-native-progress'
 import styles from "./styles"
 
 const {width, height} = Dimensions.get('window')
@@ -13,6 +13,10 @@ const ASPECT_RATIO = width / height
 const LATITUDE_DELTA = 0.0922
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
 
+/**
+ * Component below displays map component and few more small components that are related to training activity current user can have.
+ * Loads by default when an user has passed SignIn/SignUp procedure.
+ */
 export default class Home extends React.Component {
 
     constructor(props) {
@@ -33,18 +37,37 @@ export default class Home extends React.Component {
         }
     }
 
+    /**
+     * Sets map ready state to true since map has been already loaded and displayed
+     * Returns: nothing
+     */
     onMapLayout = () => { this.setState({ isMapReady: true }) }
 
+    /**
+     * Sets media started state to true once an user has pressed appropriate media button on screen
+     * Returns: nothing
+     */
     startMedia = () => {  this.setState({isMediaStarted: true}) }
 
+    /**
+     * Sets media started state to false once an user has pressed appropriate media button on screen
+     * Returns: nothing
+     */
     stopMedia = () => { this.setState({isMediaStarted: false}) }
 
+    /**
+     * Sets training started and sub menu popup states to true, since an user has begun training already.
+     * Returns: nothing
+     */
     startTraining = () => {  
         this.setState({isTrainingStarted: true})
         this.setState({isPopup: true})
-         
     }
 
+    /**
+     * Sets training started and sub menu popup states to false, since an user has stopped training already.
+     * Returns: nothing
+     */
     stopTraining = () => { 
         this.setState({isTrainingStarted: false}) 
         this.setState({isPopup: false}) 
@@ -159,8 +182,6 @@ export default class Home extends React.Component {
                                 </View>
                             ) : (
 
-                                    
-                                
                                 this.state.isTrainingStarted ? (
                                     <TouchableOpacity style={ styles.secondaryFunctionButton } onPress={ () => this.stopTraining() }> 
                                         <Icon name={'flag-checkered'} size={24} style={styles.secondaryFunctionButtonIcon} /> 
@@ -170,12 +191,6 @@ export default class Home extends React.Component {
                                         <Icon name={'running'} size={24} style={styles.secondaryFunctionButtonIcon} /> 
                                     </TouchableOpacity>
                                 )
-                                
-                                    
-                                    
-
-                                
-
                                 
                             )
                         }

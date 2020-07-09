@@ -1,5 +1,8 @@
 import { StyleSheet } from 'react-native';
 
+/**
+ * Account tab component styles component
+ */
 export default styles = StyleSheet.create({
 
     container:{

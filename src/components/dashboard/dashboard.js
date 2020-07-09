@@ -2,6 +2,10 @@ import React from 'react'
 import {Text, View, NativeModules, TouchableOpacity} from 'react-native';
 import styles from "./styles";
 
+/**
+ * A depricated component of Dashboard with miband related logic.
+ * ToDo: remove it because of useless 
+ */
 export default class Dashboard extends React.Component {
 
     constructor(props) {

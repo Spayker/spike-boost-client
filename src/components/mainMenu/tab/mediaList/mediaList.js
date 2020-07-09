@@ -5,6 +5,9 @@ import styles from './styles'
 
 const storageManager  = StorageManager.getInstance()
 
+/**
+ * Represents a set of avaialable media content (soundtracks) current user has on smartphone
+ */
 export default class MediaList extends React.Component {
 
     constructor(props) {
@@ -15,6 +18,11 @@ export default class MediaList extends React.Component {
         }
     }
 
+    /**
+     * Stub method.
+     * Returns: nothing
+     * ToDo: remove it once a replacement is ready
+     */
     doSmt(){
         console.log()
     }
