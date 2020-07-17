@@ -1,4 +1,4 @@
-name: Build Android and iOSon:
+name: Build Android
 push:
   branches:
     - masterjobs:
