@@ -6,13 +6,10 @@ on:
       - master
       
 jobs:
-  install-and-test:
+  install:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
       - name: Install npm dependencies
         run: |
           npm install
-      - name: Run tests
-        run: |
-          npm test
