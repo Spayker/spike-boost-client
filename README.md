@@ -7,11 +7,12 @@ Trello board: https://trello.com/b/VbXjLqyG/sbp-mobile
 
 ## Description
 Client concept approximately looks:
+
 ![alt text](resources/ux/spikeboost_client.jpg)
 ![alt text](resources/ux/spikeboost_main.jpg)
-![alt text](resources/ux/spikeboost_main2.jpg)
-![alt text](resources/ux/spikeboost_main3.jpg)
-![alt text](resources/ux/spikeboost_4.jpg)
+![alt text](resources/ux/spikeboost_main_2.jpg)
+![alt text](resources/ux/spikeboost_main_3.jpg)
+![alt text](resources/ux/spikeboost_main_4.jpg)
 ![alt text](resources/ux/spikeboost_tracklist.jpg)
 
 Client side of SpikeBoost includes several screens to provide end user with next features:
