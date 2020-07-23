@@ -6,6 +6,14 @@ Project stays in the active phaze of development. Android platform was chosen as
 Trello board: https://trello.com/b/VbXjLqyG/sbp-mobile
 
 ## Description
+Client concept approximately looks:
+![alt text](resources/ux/spikeboost_client.jpg)
+![alt text](resources/ux/spikeboost_main.jpg)
+![alt text](resources/ux/spikeboost_main2.jpg)
+![alt text](resources/ux/spikeboost_main3.jpg)
+![alt text](resources/ux/spikeboost_4.jpg)
+![alt text](resources/ux/spikeboost_tracklist.jpg)
+
 Client side of SpikeBoost includes several screens to provide end user with next features:
 1) stay authorized in system
 2) gps navigation 
