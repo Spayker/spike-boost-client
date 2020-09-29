@@ -1,8 +1,9 @@
 import React from 'react'
-import { Button, View, Image, Text, TextInput, TouchableOpacity } from 'react-native';
-// import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-// import AsyncStorage from '@react-native-community/async-storage';
-import styles from "../../styles.js";
+import { Button, View, Image, Text, TextInput, TouchableOpacity } from 'react-native'
+// import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+// import AsyncStorage from '@react-native-community/async-storage'
+import AccountRequests from '../../../common/rest/accountRequests'
+import styles from '../../styles.js'
 
 /**
  * Component describes sign up screen. Contains couple fields and link to Sign In screen if an user has been already registered in system. 
@@ -17,6 +18,19 @@ export default class SignUpEmail extends React.Component {
       passwordValue: 'qwerty',
       areFieldsFilled: false
     }
+  }
+
+  signUp = async () => {
+    try {
+      var accountRequestsObj = new AccountRequests()
+      const status = await accountRequestsObj.signUp(this.state.emailValue, this.state.name, this.state.passwordValue)
+      console.debug('signUpEmail.js [signUp]: SignUp status finished ' + status)
+      if (status) {
+        this.props.navigation.navigate('MainMenu')
+      } else {
+        this.refs.toast.show('SignUp failed...', 1000)
+      }
+    } catch (error) { console.error('signUpEmail.js [signUp]: ' + error) }
   }
 
   areFieldsFilled(){
@@ -88,6 +102,6 @@ export default class SignUpEmail extends React.Component {
           </View>
 
         </View>
-    );
+    )
   }
 }
