@@ -9,16 +9,16 @@ import MainMenu from '../../mainMenu/mainMenu'
  * where 'this' - current component/screen from where navigation will go next
  */
 const AppNavigator = createStackNavigator({
+  SignUpEmail: {
+    screen: SignUpEmail,
+    navigationOptions: { header: null }
+  },
   MainMenu: {
     screen: MainMenu,
     navigationOptions: { header: null }
   },
   SignInEmail: {
     screen: SignInEmail,
-    navigationOptions: { header: null }
-  },
-  SignUpEmail: {
-    screen: SignUpEmail,
     navigationOptions: { header: null }
   },
   initialRouteName: 'SignInEmail'
