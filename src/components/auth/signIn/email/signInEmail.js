@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Image, Text, TextInput, TouchableOpacity } from 'react-native'
 import StorageManager from '../../../common/storage/StorageManager'
+import AccountRequests from '../../../common/rest/accountRequests'
 import styles from "../../styles"
 
 /**
@@ -16,13 +17,23 @@ export default class SignInEmail extends React.Component {
       passwordValue: 'qwerty',
       storageManager: new StorageManager()    
     }
-    
   }
 
   removeSpaces = (str) =>  { return str.replace(/\s/g,'') }
 
-  componentDidMount = async () => {
-    await this.state.storageManager.initAccountData()
+  componentDidMount = async () => { await this.state.storageManager.initAccountData() }
+
+  signIn = async () => {
+    try {
+      var accountRequestsObj = new AccountRequests()
+      const status = await accountRequestsObj.getAccessToken(this.state.emailValue, this.state.passwordValue)
+      console.debug('signInEmail.js [signIn]: SignIn status finished ' + status)
+      if (status) {
+        this.props.navigation.navigate('MainMenu')
+      } else {
+        this.refs.toast.show('SignIn failed...', 1000);
+      }
+    } catch (error) { console.error("signInEmail.js [signIn]: " + error) }
   }
 
   render() {
@@ -64,7 +75,7 @@ export default class SignInEmail extends React.Component {
 
             <TouchableOpacity
                     style={styles.loginButton}
-                    onPress={() => this.props.navigation.navigate('MainMenu')}>
+                    onPress={() => this.signIn()}>
                     <Text style={styles.loginButtonText}>Login</Text>
             </TouchableOpacity>
 
