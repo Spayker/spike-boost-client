@@ -9,6 +9,22 @@ import styles from "../../styles.js";
  */
 export default class SignUpEmail extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      emailValue: 'spykerstar@gmail.com',
+      name: 'alex',
+      passwordValue: 'qwerty',
+      areFieldsFilled: false
+    }
+  }
+
+  areFieldsFilled(){
+    return this.state.emailValue != '' && this.state.passwordValue != '' && this.state.name != ''
+  }
+
+  removeSpaces = (str) => { return str.replace(/\s/g, '') }
+
   render() {
     return (
         <View style={styles.imageBackground} >
@@ -27,9 +43,22 @@ export default class SignUpEmail extends React.Component {
               name="email"
               type="email"
               id="email"
-              //value={this.removeSpaces(this.state.emailValue)}
+              value={this.removeSpaces(this.state.emailValue)}
               onFocus={() => this.setState({ areFieldsFilled: false})}
               onChangeText={(emailValue) => this.setState({emailValue: this.removeSpaces(emailValue)})}
+              onSubmitEditing={() => this.setState({areFieldsFilled: this.areFieldsFilled()})}/>
+
+            <TextInput
+              style={styles.dataInputText}
+              editable={true}
+              placeholder='Name'
+              placeholderTextColor= "#BDBDBD"
+              name='name'
+              type='Text'
+              id='name'
+              value={this.state.name}
+              onFocus={() => this.setState({ areFieldsFilled: false})}
+              onChangeText={(nameValue) => this.setState({nameValue})}
               onSubmitEditing={() => this.setState({areFieldsFilled: this.areFieldsFilled()})}/>
 
             <TextInput
@@ -41,21 +70,7 @@ export default class SignUpEmail extends React.Component {
               type='password'
               id='password'
               secureTextEntry={true}
-              //value={this.state.passwordValue}
-              onFocus={() => this.setState({ areFieldsFilled: false})}
-              onChangeText={(passwordValue) => this.setState({passwordValue})}
-              onSubmitEditing={() => this.setState({areFieldsFilled: this.areFieldsFilled()})}/>
-
-            <TextInput
-              style={styles.dataInputText}
-              editable={true}
-              placeholder='Confirm Password'
-              placeholderTextColor= "#BDBDBD"
-              name='confirmPassword'
-              type='password'
-              id='confirmPassword'
-              secureTextEntry={true}
-              //value={this.state.passwordValue}
+              value={this.state.passwordValue}
               onFocus={() => this.setState({ areFieldsFilled: false})}
               onChangeText={(passwordValue) => this.setState({passwordValue})}
               onSubmitEditing={() => this.setState({areFieldsFilled: this.areFieldsFilled()})}/>
