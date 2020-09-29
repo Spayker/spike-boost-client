@@ -12,10 +12,14 @@ export default class SignInEmail extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      emailValue: 'spykerstar@gmail.com',
+      passwordValue: 'qwerty',
       storageManager: new StorageManager()    
     }
     
   }
+
+  removeSpaces = (str) =>  { return str.replace(/\s/g,'') }
 
   componentDidMount = async () => {
     await this.state.storageManager.initAccountData()
@@ -39,7 +43,7 @@ export default class SignInEmail extends React.Component {
               name="email"
               type="email"
               id="email"
-              //value={this.removeSpaces(this.state.emailValue)}
+              value={this.removeSpaces(this.state.emailValue)}
               onFocus={() => this.setState({ areFieldsFilled: false})}
               onChangeText={(emailValue) => this.setState({emailValue: this.removeSpaces(emailValue)})}
               onSubmitEditing={() => this.setState({areFieldsFilled: this.areFieldsFilled()})}/>
@@ -53,7 +57,7 @@ export default class SignInEmail extends React.Component {
               type='password'
               id='password'
               secureTextEntry={true}
-              //value={this.state.passwordValue}
+              value={this.state.passwordValue}
               onFocus={() => this.setState({ areFieldsFilled: false})}
               onChangeText={(passwordValue) => this.setState({passwordValue})}
               onSubmitEditing={() => this.setState({areFieldsFilled: this.areFieldsFilled()})}/>
