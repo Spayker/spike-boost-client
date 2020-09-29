@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, View, Image, Text, TextInput, TouchableOpacity } from 'react-native'
+import { View, Image, Text, TextInput, TouchableOpacity } from 'react-native'
 // import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 // import AsyncStorage from '@react-native-community/async-storage'
 import AccountRequests from '../../../common/rest/accountRequests'
@@ -91,7 +91,7 @@ export default class SignUpEmail extends React.Component {
 
             <TouchableOpacity
                     style={styles.loginButton}
-                    onPress={() => this.props.navigation.navigate('MainMenu')}>
+                    onPress={() => this.signUp()}>
                     <Text style={styles.loginButtonText}>SignUp</Text>
             </TouchableOpacity>
 
