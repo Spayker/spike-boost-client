@@ -38,7 +38,7 @@ export default class MainMenu extends React.Component {
   ]
 
   state = {
-    activeTab: this.tabs[2].key
+    activeTab: this.tabs[1].key
   }
 
   /**
