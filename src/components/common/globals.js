@@ -17,7 +17,6 @@ export default {
     GE_SERVER_USER_AUTH_URL_ADDRESS: 'http://148.251.138.115:5000/mservicet/oauth/update',
     
     // Async Storage Keys
-    ACCESS_TOKEN_KEY:   '@AccessToken',
     USERNAME_TOKEN_KEY: '@UserNameToken',
     USERNAME_KEY: '@UserName',
     USER_EMAIL_KEY: '@UserEmail',

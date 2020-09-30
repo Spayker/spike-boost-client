@@ -2,6 +2,8 @@ import React from 'react'
 import {View, Image, Text, TouchableOpacity} from 'react-native';
 import FastImage from 'react-native-fast-image'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import AsyncStorage from '@react-native-community/async-storage'
+import globals from '../../../common/globals'
 import styles from './styles';
 
 /**
@@ -17,6 +19,18 @@ export default class Account extends React.Component {
             email: "spykerstar@gmail.com",
             picture: null
         }
+    }
+
+    logOut = async () => {
+        try {
+            console.debug('account.js [logOut]: account signout...')
+
+            let multiDataSet = [
+                [globals.USERNAME_TOKEN_KEY, '']
+            ];
+            await AsyncStorage.multiSet(multiDataSet);
+
+        } catch (error) { console.error("account.js [logOut]: error has occured. " + error) }
     }
 
     render() {
@@ -54,7 +68,7 @@ export default class Account extends React.Component {
                 </View>
 
                 <View style={styles.containerSettings}>
-                    <TouchableOpacity onPress={() => console.log()}>
+                    <TouchableOpacity onPress={() => {this.logOut(); this.props.navigation.navigate('SignInEmail')}}>
                         <View style={styles.containerInSection}>
                             <View style={styles.containerInnerSection}>
                                 <Icon name={'sign-out'} size={24} style={styles.iconLeft} />
