@@ -72,14 +72,16 @@ export default styles = StyleSheet.create({
     },
 
     popupContent: {
-        backgroundColor: "white",
         padding: 22,
         borderRadius: 4,
         borderColor: "black"
     },
 
     popupContainer: {
-        padding: 16,
+        backgroundColor: "#292C2F",
+        paddingLeft: 15,
+        paddingRight: 15,
+        paddingBottom: 5,
         justifyContent: "space-between",
         flexDirection: 'row',
     },
@@ -89,12 +91,8 @@ export default styles = StyleSheet.create({
         flexDirection: 'row',
     },
 
-    leftPopupContainer: {
-        alignItems: "flex-start",
-    },
-
-    rightPopupContainer: {
-        alignItems: "flex-end",
+    innnerPopupContainer: {
+        alignItems: "center",
     },
 
     popupContainerItem: {
@@ -104,27 +102,13 @@ export default styles = StyleSheet.create({
     popupContainerItemHeader: {
         paddingTop: 8,
         fontSize: 14,
+        color: "white",
         fontWeight: "bold"
     },
 
-    popupContainerItemCoordinates: {
+    popupContainerItemData: {
         paddingTop: 8,
         color: "#9e9e9e"
-    },
-
-    popupContainerItemBatteryRedLevel: {
-        paddingTop: 8,
-        color: "#f44336"
-    },
-
-    popupContainerItemBatteryYellowLevel: {
-        paddingTop: 8,
-        color: "#fdcc01"
-    },
-
-    popupContainerItemBatteryGreenLevel: {
-        paddingTop: 8,
-        color: "#34da8d"
     },
     
 });

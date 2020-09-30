@@ -22,6 +22,10 @@ export default class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            time: '00:00:00',
+            speed: '0 km/h',
+            distance: '0 km',
+            callories: '0',
             marginBottom: 1,
             isMapReady: false,
             isPopup: false,
@@ -148,7 +152,6 @@ export default class Home extends React.Component {
                         {
                             this.state.isPopup ? (
                                 <View>
-                                    
 
                                     {
                                         this.state.isTrainingStarted ? (
@@ -163,20 +166,40 @@ export default class Home extends React.Component {
                                     }
 
                                     <View style={ styles.popupContainer }>
-                                        <View style={ styles.leftPopupContainer }>
-                                            <Text style={styles.popupContainerItemHeader}>My device</Text>
-                                            <Text style={styles.popupContainerItemCoordinates}>{
-                                                this.state.initialRegion.latitude 
-                                                + ', ' 
-                                                + this.state.initialRegion.longitude}
+                                        <View style={ styles.innnerPopupContainer }>
+                                            <Text style={styles.popupContainerItemHeader}>Time</Text>
+                                            <Text style={styles.popupContainerItemData}>
+                                                {
+                                                    this.state.time
+                                                }
                                             </Text>
                                         </View>
 
-                                        <View style={ styles.rightPopupContainer }>
-                                            <Text style={styles.popupContainerItemHeader}>Device battery life</Text>
-                                            <View style={ styles.popupPowerLevelRow }>
-                                                <Text style={styles.popupContainerItemBatteryGreenLevel}>100%</Text>
-                                            </View>
+                                        <View style={ styles.innnerPopupContainer }>
+                                            <Text style={styles.popupContainerItemHeader}>Speed</Text>
+                                            <Text style={styles.popupContainerItemData} >
+                                                {
+                                                    this.state.speed
+                                                }
+                                            </Text>
+                                        </View>
+
+                                        <View style={ styles.innnerPopupContainer }>
+                                            <Text style={styles.popupContainerItemHeader}>Distance</Text>
+                                            <Text style={styles.popupContainerItemData} >
+                                                {
+                                                    this.state.distance
+                                                }
+                                            </Text>
+                                        </View>
+
+                                        <View style={ styles.innnerPopupContainer }>
+                                            <Text style={styles.popupContainerItemHeader}>Callories</Text>
+                                            <Text style={styles.popupContainerItemData} >
+                                                {
+                                                    this.state.callories
+                                                }
+                                            </Text>
                                         </View>
                                     </View>
                                 </View>

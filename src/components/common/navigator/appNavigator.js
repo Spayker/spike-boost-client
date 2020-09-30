@@ -10,12 +10,12 @@ import ChangePassword from '../../mainMenu/tab/account/changePassword/changePass
  * where 'this' - current component/screen from where navigation will go next
  */
 const AppNavigator = createStackNavigator({
-  SignInEmail: {
-    screen: SignInEmail,
-    navigationOptions: { header: null }
-  },
   MainMenu: {
     screen: MainMenu,
+    navigationOptions: { header: null }
+  },
+  SignInEmail: {
+    screen: SignInEmail,
     navigationOptions: { header: null }
   },
   SignUpEmail: {
