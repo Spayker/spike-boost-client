@@ -73,25 +73,20 @@ export default class AccountRequests extends React.Component {
     }
 
     storeData = async (userToken, email) => {
-        console.debug('account storeData: userToken ' + userToken)
-        console.debug('account storeData: email ' + email)
         try {
             let multiDataSet = [
                 [globals.ACCESS_TOKEN_KEY, userToken],
-                [globals.USERNAME_TOKEN_KEY, email],
+                [globals.USER_EMAIL_KEY, email],
             ];
             await AsyncStorage.multiSet(multiDataSet);
         } catch (error) { console.debug('couldn\'t save user access token to storage because of: ' + error) }
     }
 
     storeAccountData = async (name, password) => {
-        console.debug('account storeAccountData: name ' + name)
-        console.debug('account storeAccountData: password ' + password)
-
         try {
             let multiDataSet = [
-                [globals.ACCOUNT_NAME_KEY, name],
-                [globals.ACCOUNT_PASSWORD_KEY, password],
+                [globals.USERNAME_KEY, name],
+                [globals.USER_PASSWORD_KEY, password],
             ];
             await AsyncStorage.multiSet(multiDataSet);
         } catch (error) { console.debug('couldn\'t save account data to storage because of: ' + error) }

@@ -2,6 +2,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 import SignInEmail from '../../auth/signIn/email/signInEmail'
 import SignUpEmail from '../../auth/signUp/email/signUpEmail'
 import MainMenu from '../../mainMenu/mainMenu'
+import ChangePassword from '../../mainMenu/tab/account/changePassword/changePassword';
 
 /**
  * AppNavigator component registers all screen components in system.
@@ -21,6 +22,7 @@ const AppNavigator = createStackNavigator({
     screen: SignInEmail,
     navigationOptions: { header: null }
   },
+  ChangePassword:{ screen: ChangePassword },
   initialRouteName: 'SignInEmail'
 });
 

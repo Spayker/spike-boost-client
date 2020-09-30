@@ -15,10 +15,11 @@ export default {
     
     // Async Storage Keys
     ACCESS_TOKEN_KEY:   '@AccessToken',
-    USERNAME_TOKEN_KEY: '@UserName',
+    USERNAME_TOKEN_KEY: '@UserNameToken',
+    USERNAME_KEY: '@UserName',
+    USER_EMAIL_KEY: '@UserEmail',
+    USER_PASSWORD_KEY: '@UserPassword',
     
-    // Device section
-    DEVICES_KEY:        '@Devices',
 
     // Service section
     SERVICES_KEY:       '@Services',
