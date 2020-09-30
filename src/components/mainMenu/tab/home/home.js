@@ -22,7 +22,13 @@ export default class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            time: '00:00:00',
+
+            time: {
+                'h': '00',
+                'm': '00',
+                's': '00'
+            }, 
+            seconds: 0,
             speed: '0 km/h',
             distance: '0 km',
             callories: '0',
@@ -39,6 +45,51 @@ export default class Home extends React.Component {
                 longitudeDelta: 0,
             }
         }
+
+        this.timer = 0;
+        this.startTimer = this.startTimer.bind(this);
+        this.countDown = this.countDown.bind(this);
+    }
+
+    secondsToTime(secs){
+        let hours = Math.floor(secs / (60 * 60));
+    
+        let divisor_for_minutes = secs % (60 * 60);
+        let minutes = Math.floor(divisor_for_minutes / 60);
+    
+        let divisor_for_seconds = divisor_for_minutes % 60;
+        let seconds = Math.ceil(divisor_for_seconds);
+    
+        let obj = {
+          "h": hours < 10 ? '0' + hours : hours,
+          "m": minutes < 10 ? '0' + minutes : minutes,
+          "s": seconds < 10 ? '0' + seconds : seconds
+        };
+        return obj;
+    }
+    
+    componentDidMount() {
+        let timeLeftVar = this.secondsToTime(this.state.seconds);
+        this.setState({ time: timeLeftVar });
+    }
+    
+    startTimer() {
+        if (this.timer >= 0) {
+          this.timer = setInterval(this.countDown, 1000);
+        }
+    }
+
+    stopTimer() {
+        clearInterval(this.timer);
+    }
+    
+    countDown() {
+        // Remove one second, set state so a re-render happens.
+        let seconds = this.state.seconds + 1;
+        this.setState({
+          time: this.secondsToTime(seconds),
+          seconds: seconds,
+        })
     }
 
     /**
@@ -66,6 +117,7 @@ export default class Home extends React.Component {
     startTraining = () => {  
         this.setState({isTrainingStarted: true})
         this.setState({isPopup: true})
+        this.startTimer()
     }
 
     /**
@@ -74,7 +126,8 @@ export default class Home extends React.Component {
      */
     stopTraining = () => { 
         this.setState({isTrainingStarted: false}) 
-        this.setState({isPopup: false}) 
+        //this.setState({isPopup: false}) 
+        this.stopTimer()
     }
 
     componentDidMount = async () => {
@@ -169,9 +222,9 @@ export default class Home extends React.Component {
                                         <View style={ styles.innnerPopupContainer }>
                                             <Text style={styles.popupContainerItemHeader}>Time</Text>
                                             <Text style={styles.popupContainerItemData}>
-                                                {
-                                                    this.state.time
-                                                }
+                                                
+                                                {this.state.time.h}:{this.state.time.m}:{this.state.time.s}
+                                                
                                             </Text>
                                         </View>
 
