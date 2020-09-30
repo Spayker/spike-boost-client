@@ -36,7 +36,7 @@ export default class ChangePassword extends React.Component {
                     try {
                         let multiDataSet = [ [globals.USER_PASSWORD_KEY, this.state.newPassword] ];
                         await AsyncStorage.multiSet(multiDataSet);
-                        const status = await userRestObj.updateProfile()
+                        const status = await accountRequests.updateProfile()
                         console.debug('changePassword.js [updatePassword]: password has been updated - ' + status)
                         this.setState({oldPassword: newPassword})
                         this.props.navigation.navigate('Profile')

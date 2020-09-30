@@ -72,6 +72,40 @@ export default class AccountRequests extends React.Component {
         .catch(error => {console.debug('AccountRequests.js [getAccessToken]: error - ' + error )})
     }
 
+    updateProfile = async () => {
+        let username = null
+        let email = null
+        let password = null
+        let userToken = null
+        try {
+            username  = await AsyncStorage.getItem(globals.USERNAME_KEY)
+            email     = await AsyncStorage.getItem(globals.USER_EMAIL_KEY)
+            password  = await AsyncStorage.getItem(globals.USER_PASSWORD_KEY)
+            userToken =  await AsyncStorage.getItem(globals.ACCESS_TOKEN_KEY)
+        } catch (error) { console.error('AccountRequests.js [updateProfile]: couldn\'t save data related to sign up procedure. ' + error) }
+
+        console.debug('AccountRequests.js [updateProfile]: Account update for ' + username + ' ' + email + ' ' + password)
+        return fetch(globals.GE_SERVER_USER_AUTH_URL_ADDRESS, {
+                method: 'PUT',
+                headers: {
+                    Accept: 'application/json',
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + userToken
+                },
+                body: JSON.stringify({
+                    name:     username,
+                    email:    email,
+                    password: password
+                })
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.debug('AccountRequests.js [updateProfile]: ' + responseJson)
+                return true 
+            })
+            .catch((error) => { console.error(error) });
+    }
+
     storeData = async (userToken, email) => {
         try {
             let multiDataSet = [
