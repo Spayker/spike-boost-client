@@ -26,7 +26,7 @@ export default styles = StyleSheet.create({
     addMediaButton: {
         marginTop: 10,
         height: 65,
-        backgroundColor: "#158A15",
+        backgroundColor: "#EC5805",
         borderRadius:30,
         alignItems: 'center'
     },
@@ -94,6 +94,12 @@ export default styles = StyleSheet.create({
     item: {
         fontSize: 18,
         color: "white",
+    },
+
+    iconLeft: {
+        flex: 1,
+        textAlign: 'center',
+        color: "white"
     }
 
 });
