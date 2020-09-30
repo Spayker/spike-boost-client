@@ -9,16 +9,19 @@ export default {
     // 148.251.138.115:6000/accounts/ 
     GE_SERVER_CREATE_NEW_ACCOUNT_URL_ADDRESS:  'http://148.251.138.115:6000/accounts/',
 
-    // SpikeBoost GE account: get account token
+    // SpikeBoost GE auth: get account token
     // http://148.251.138.115:5000/mservicet/oauth/token
     GE_SERVER_GET_ACCOUNT_TOKEN_URL_ADDRESS:    'http://148.251.138.115:5000/mservicet/oauth/token',
+
+    // SpikeBoost GE auth srvice: basic address of user auth
+    GE_SERVER_USER_AUTH_URL_ADDRESS: 'http://148.251.138.115:5000/mservicet/oauth/update',
     
     // Async Storage Keys
-    ACCESS_TOKEN_KEY:   '@AccessToken',
-    USERNAME_TOKEN_KEY: '@UserName',
+    USERNAME_TOKEN_KEY: '@UserNameToken',
+    USERNAME_KEY: '@UserName',
+    USER_EMAIL_KEY: '@UserEmail',
+    USER_PASSWORD_KEY: '@UserPassword',
     
-    // Device section
-    DEVICES_KEY:        '@Devices',
 
     // Service section
     SERVICES_KEY:       '@Services',

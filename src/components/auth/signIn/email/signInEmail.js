@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Image, Text, TextInput, TouchableOpacity } from 'react-native'
+import { View, Image, Text, TextInput, TouchableOpacity, StatusBar } from 'react-native'
 import StorageManager from '../../../common/storage/StorageManager'
 import AccountRequests from '../../../common/rest/accountRequests'
 import styles from "../../styles"
@@ -21,7 +21,10 @@ export default class SignInEmail extends React.Component {
 
   removeSpaces = (str) =>  { return str.replace(/\s/g,'') }
 
-  componentDidMount = async () => { await this.state.storageManager.initAccountData() }
+  componentDidMount = async () => {
+    StatusBar.setHidden(true) 
+    await this.state.storageManager.initAccountData() 
+  }
 
   signIn = async () => {
     try {

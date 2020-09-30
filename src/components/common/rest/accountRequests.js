@@ -72,26 +72,55 @@ export default class AccountRequests extends React.Component {
         .catch(error => {console.debug('AccountRequests.js [getAccessToken]: error - ' + error )})
     }
 
+    updateProfile = async () => {
+        let username = null
+        let email = null
+        let password = null
+        let userToken = null
+        try {
+            username  = await AsyncStorage.getItem(globals.USERNAME_KEY)
+            email     = await AsyncStorage.getItem(globals.USER_EMAIL_KEY)
+            password  = await AsyncStorage.getItem(globals.USER_PASSWORD_KEY)
+            userToken =  await AsyncStorage.getItem(globals.USERNAME_TOKEN_KEY)
+        } catch (error) { console.error('AccountRequests.js [updateProfile]: couldn\'t save data related to sign up procedure. ' + error) }
+
+        console.debug('AccountRequests.js [updateProfile]: Account update for ' + username + ' ' + email + ' ' + password)
+
+        const formBody = JSON.stringify({
+            name:     username,
+            email:    email,
+            password: password
+        })
+
+        return APIKit.put(globals.GE_SERVER_USER_AUTH_URL_ADDRESS, formBody, { headers: {
+            Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + userToken
+            }
+        })
+        .then((response) => {
+            const data = response.data
+            console.debug('AccountRequests.js [updateProfile]: ' + data.message)
+            return true 
+        })
+        .catch((error) => { console.error(error) });
+    }
+
     storeData = async (userToken, email) => {
-        console.debug('account storeData: userToken ' + userToken)
-        console.debug('account storeData: email ' + email)
         try {
             let multiDataSet = [
-                [globals.ACCESS_TOKEN_KEY, userToken],
-                [globals.USERNAME_TOKEN_KEY, email],
+                [globals.USERNAME_TOKEN_KEY, userToken],
+                [globals.USER_EMAIL_KEY, email],
             ];
             await AsyncStorage.multiSet(multiDataSet);
         } catch (error) { console.debug('couldn\'t save user access token to storage because of: ' + error) }
     }
 
     storeAccountData = async (name, password) => {
-        console.debug('account storeAccountData: name ' + name)
-        console.debug('account storeAccountData: password ' + password)
-
         try {
             let multiDataSet = [
-                [globals.ACCOUNT_NAME_KEY, name],
-                [globals.ACCOUNT_PASSWORD_KEY, password],
+                [globals.USERNAME_KEY, name],
+                [globals.USER_PASSWORD_KEY, password],
             ];
             await AsyncStorage.multiSet(multiDataSet);
         } catch (error) { console.debug('couldn\'t save account data to storage because of: ' + error) }
