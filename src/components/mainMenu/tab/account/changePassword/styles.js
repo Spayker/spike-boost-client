@@ -28,7 +28,7 @@ export default styles = StyleSheet.create({
     changePasswordButtonText: {
         color: "#FFFFFF",
         height: 65,
-        fontSize: 16,
+        fontSize: 18,
         paddingTop: 20,
         alignItems: 'center'
     },
@@ -44,7 +44,7 @@ export default styles = StyleSheet.create({
 
     dataNameTextHeader: { 
         marginTop: 20,
-        fontSize: 14,
+        fontSize: 18,
         color: "grey" 
     },
 

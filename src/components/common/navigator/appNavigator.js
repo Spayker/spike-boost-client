@@ -22,7 +22,10 @@ const AppNavigator = createStackNavigator({
     screen: SignUpEmail,
     navigationOptions: { header: null }
   },
-  ChangePassword:{ screen: ChangePassword },
+  ChangePassword:{ 
+    screen: ChangePassword,
+    navigationOptions: { header: null } 
+  },
   initialRouteName: 'SignInEmail'
 });
 
