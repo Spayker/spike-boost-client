@@ -85,6 +85,27 @@ export default class AccountRequests extends React.Component {
         } catch (error) { console.error('AccountRequests.js [updateProfile]: couldn\'t save data related to sign up procedure. ' + error) }
 
         console.debug('AccountRequests.js [updateProfile]: Account update for ' + username + ' ' + email + ' ' + password)
+
+        const formBody = JSON.stringify({
+            name:     username,
+            email:    email,
+            password: password
+        })
+
+        return APIKit.put(globals.GE_SERVER_USER_AUTH_URL_ADDRESS, formBody, { headers: {
+            Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + userToken
+            }
+        })
+        .then((response) => {
+            const data = response.data
+            console.debug('AccountRequests.js [updateProfile]: ' + data.message)
+            return true 
+        })
+        .catch((error) => { console.error(error) });
+
+
         return fetch(globals.GE_SERVER_USER_AUTH_URL_ADDRESS, {
                 method: 'PUT',
                 headers: {

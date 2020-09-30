@@ -14,7 +14,7 @@ export default {
     GE_SERVER_GET_ACCOUNT_TOKEN_URL_ADDRESS:    'http://148.251.138.115:5000/mservicet/oauth/token',
 
     // SpikeBoost GE auth srvice: basic address of user auth
-    GE_SERVER_USER_AUTH_URL_ADDRESS: 'http://148.251.138.115:5000/mservicet/auth/update',
+    GE_SERVER_USER_AUTH_URL_ADDRESS: 'http://148.251.138.115:5000/mservicet/oauth/update',
     
     // Async Storage Keys
     ACCESS_TOKEN_KEY:   '@AccessToken',
