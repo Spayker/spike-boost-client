@@ -213,7 +213,7 @@ export default class Home extends React.Component {
                                             </TouchableOpacity>
                                         ) : (
                                             <TouchableOpacity style={ styles.secondaryFunctionPopupButton } onPress={ () => this.startTraining() }> 
-                                                <Icon name={'play'} size={24} style={styles.secondaryFunctionButtonIcon} /> 
+                                                <Icon name={'running'} size={24} style={styles.secondaryFunctionButtonIcon} /> 
                                             </TouchableOpacity>
                                         )
                                     }
