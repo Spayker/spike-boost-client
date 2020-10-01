@@ -22,6 +22,16 @@ export default class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+
+            time: {
+                'h': '00',
+                'm': '00',
+                's': '00'
+            }, 
+            seconds: 0,
+            speed: '0 km/h',
+            distance: '0 km',
+            callories: '0',
             marginBottom: 1,
             isMapReady: false,
             isPopup: false,
@@ -35,6 +45,66 @@ export default class Home extends React.Component {
                 longitudeDelta: 0,
             }
         }
+
+        this.timer = 0;
+        this.startTimer = this.startTimer.bind(this);
+        this.countDown = this.countDown.bind(this);
+    }
+
+    secondsToTime(secs){
+        let hours = Math.floor(secs / (60 * 60));
+    
+        let divisor_for_minutes = secs % (60 * 60);
+        let minutes = Math.floor(divisor_for_minutes / 60);
+    
+        let divisor_for_seconds = divisor_for_minutes % 60;
+        let seconds = Math.ceil(divisor_for_seconds);
+    
+        let obj = {
+          "h": hours < 10 ? '0' + hours : hours,
+          "m": minutes < 10 ? '0' + minutes : minutes,
+          "s": seconds < 10 ? '0' + seconds : seconds
+        };
+        return obj;
+    }
+    
+    /**
+     * Sets initial state for training timer
+     * Returns: nothing
+     */
+    componentDidMount() {
+        let timeLeftVar = this.secondsToTime(this.state.seconds);
+        this.setState({ time: timeLeftVar });
+    }
+    
+    /**
+     * Stops timer once a correspond button has been pressed.
+     * Returns: nothing
+     */
+    startTimer() {
+        if (this.timer >= 0) {
+          this.timer = setInterval(this.countDown, 1000);
+        }
+    }
+
+    /**
+     * Stops timer once a correspond button has been pressed.
+     * Returns: nothing
+     */
+    stopTimer() {
+        clearInterval(this.timer);
+    }
+    
+    /**
+     * Adds one second, set state so a re-render happens.
+     * Returns: nothing
+     */
+    countDown() {
+        let seconds = this.state.seconds + 1;
+        this.setState({
+          time: this.secondsToTime(seconds),
+          seconds: seconds,
+        })
     }
 
     /**
@@ -62,6 +132,7 @@ export default class Home extends React.Component {
     startTraining = () => {  
         this.setState({isTrainingStarted: true})
         this.setState({isPopup: true})
+        this.startTimer()
     }
 
     /**
@@ -70,7 +141,8 @@ export default class Home extends React.Component {
      */
     stopTraining = () => { 
         this.setState({isTrainingStarted: false}) 
-        this.setState({isPopup: false}) 
+        //this.setState({isPopup: false}) 
+        this.stopTimer()
     }
 
     componentDidMount = async () => {
@@ -148,7 +220,6 @@ export default class Home extends React.Component {
                         {
                             this.state.isPopup ? (
                                 <View>
-                                    
 
                                     {
                                         this.state.isTrainingStarted ? (
@@ -157,26 +228,46 @@ export default class Home extends React.Component {
                                             </TouchableOpacity>
                                         ) : (
                                             <TouchableOpacity style={ styles.secondaryFunctionPopupButton } onPress={ () => this.startTraining() }> 
-                                                <Icon name={'play'} size={24} style={styles.secondaryFunctionButtonIcon} /> 
+                                                <Icon name={'running'} size={24} style={styles.secondaryFunctionButtonIcon} /> 
                                             </TouchableOpacity>
                                         )
                                     }
 
                                     <View style={ styles.popupContainer }>
-                                        <View style={ styles.leftPopupContainer }>
-                                            <Text style={styles.popupContainerItemHeader}>My device</Text>
-                                            <Text style={styles.popupContainerItemCoordinates}>{
-                                                this.state.initialRegion.latitude 
-                                                + ', ' 
-                                                + this.state.initialRegion.longitude}
+                                        <View style={ styles.innnerPopupContainer }>
+                                            <Text style={styles.popupContainerItemHeader}>Time</Text>
+                                            <Text style={styles.popupContainerItemData}>
+                                                
+                                                {this.state.time.h}:{this.state.time.m}:{this.state.time.s}
+                                                
                                             </Text>
                                         </View>
 
-                                        <View style={ styles.rightPopupContainer }>
-                                            <Text style={styles.popupContainerItemHeader}>Device battery life</Text>
-                                            <View style={ styles.popupPowerLevelRow }>
-                                                <Text style={styles.popupContainerItemBatteryGreenLevel}>100%</Text>
-                                            </View>
+                                        <View style={ styles.innnerPopupContainer }>
+                                            <Text style={styles.popupContainerItemHeader}>Speed</Text>
+                                            <Text style={styles.popupContainerItemData} >
+                                                {
+                                                    this.state.speed
+                                                }
+                                            </Text>
+                                        </View>
+
+                                        <View style={ styles.innnerPopupContainer }>
+                                            <Text style={styles.popupContainerItemHeader}>Distance</Text>
+                                            <Text style={styles.popupContainerItemData} >
+                                                {
+                                                    this.state.distance
+                                                }
+                                            </Text>
+                                        </View>
+
+                                        <View style={ styles.innnerPopupContainer }>
+                                            <Text style={styles.popupContainerItemHeader}>Callories</Text>
+                                            <Text style={styles.popupContainerItemData} >
+                                                {
+                                                    this.state.callories
+                                                }
+                                            </Text>
                                         </View>
                                     </View>
                                 </View>
