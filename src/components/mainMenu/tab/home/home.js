@@ -68,23 +68,38 @@ export default class Home extends React.Component {
         return obj;
     }
     
+    /**
+     * Sets initial state for training timer
+     * Returns: nothing
+     */
     componentDidMount() {
         let timeLeftVar = this.secondsToTime(this.state.seconds);
         this.setState({ time: timeLeftVar });
     }
     
+    /**
+     * Stops timer once a correspond button has been pressed.
+     * Returns: nothing
+     */
     startTimer() {
         if (this.timer >= 0) {
           this.timer = setInterval(this.countDown, 1000);
         }
     }
 
+    /**
+     * Stops timer once a correspond button has been pressed.
+     * Returns: nothing
+     */
     stopTimer() {
         clearInterval(this.timer);
     }
     
+    /**
+     * Adds one second, set state so a re-render happens.
+     * Returns: nothing
+     */
     countDown() {
-        // Remove one second, set state so a re-render happens.
         let seconds = this.state.seconds + 1;
         this.setState({
           time: this.secondsToTime(seconds),
