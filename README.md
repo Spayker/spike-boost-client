@@ -3,7 +3,6 @@
 # SpikeBoost Client Part
 
 Project stays in the active phaze of development. Android platform was chosen as a main test stand.
-Trello board: https://trello.com/b/VbXjLqyG/sbp-mobile
 
 ## Description
 Client concept approximately looks:
@@ -23,15 +22,10 @@ Client side of SpikeBoost includes several screens to provide end user with next
 5) Manage quality of neural network by its periodical update
 
 ## Technical Stack
-1) Java 8 (since min Android SDK is 21)
-2) React-Native v0.61.2
+1) Java 11 (since min Android SDK is 28)
 
 ## How To Run
-In Project root folder:
-1) npm start
-2) check if test Android device is attached: adb devices
-3) refresh cache in adb: adb shell am clear-debug-app
-4) run application: react-native run-android
+WIP
 
 ## Testing
 All tests are rotating around working with rest-end points. Last ones can be divided on couple groups:
