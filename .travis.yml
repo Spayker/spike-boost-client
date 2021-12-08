@@ -1,0 +1,24 @@
+language: java
+os: linux
+dist: focal
+group: edge
+git:
+  depth: false
+
+env:
+  global:
+    # for updates check https://developer.android.com/studio#downloads
+    - ANDROID_SDK_CMD_TOOLS=commandlinetools-linux-7583922_latest.zip
+
+before_install:
+  - wget -nv https://dl.google.com/android/repository/$ANDROID_SDK_CMD_TOOLS
+  - mkdir -p $HOME/sdk/cmdline-tools && unzip -q $ANDROID_SDK_CMD_TOOLS -d $HOME/sdk/cmdline-tools
+  - mv $HOME/sdk/cmdline-tools/cmdline-tools $HOME/sdk/cmdline-tools/latest
+  - export PATH=$PATH:$HOME/sdk/cmdline-tools/latest/bin
+  - export ANDROID_SDK_ROOT=$HOME/sdk
+  - mkdir -p $HOME/.android && touch $HOME/.android/repositories.cfg
+install:
+  - yes | sdkmanager --licenses >/dev/null
+
+script:
+  - ./gradlew clean build test
