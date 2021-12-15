@@ -1,4 +1,5 @@
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Spayker/spike-boost-client/blob/master/LICENSE)
+[![Build Status](https://app.travis-ci.com/Spayker/spike-boost-client.svg?branch=master)](https://travis-ci.com/Spayker/spike-boost-client.svg)
 
 # SpikeBoost Client Part
 
