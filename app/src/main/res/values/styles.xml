@@ -1,0 +1,30 @@
+<resources>
+
+    <style name="LoginScreen" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">#FF5722</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="LoginScreen"/>
+
+    <style name="MainTheme" parent="LoginScreen">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+        <item name="android:windowBackground">#000000</item>
+        <item name="colorButtonNormal">#FF5722</item>
+        <item name="android:textColor">#E1DEDE</item>
+        <item name="colorControlActivated">#FF5722</item>
+    </style>
+
+    <style name="RegisterAccentButton" parent="ThemeOverlay.AppCompat.Dark">
+        <!-- customize colorButtonNormal for the disable color -->
+        <item name="colorButtonNormal">#FF5722</item>
+        <!-- customize colorAccent for the enabled color -->
+        <item name="colorAccent">#FF9800</item>
+        <!--<item name="android:textColor">@color/text_color</item>-->
+    </style>
+
+</resources>
