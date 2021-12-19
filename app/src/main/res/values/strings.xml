@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">SpikeBoost</string>
+
+    <string name="app_name">Spike-Boost</string>
+
+    <!--Login Screen-->
+    <string name="login_title_activity">Sign In</string>
+    <string name="login_prompt_email">Email</string>
+    <string name="login_prompt_password">Password</string>
+    <string name="login_action_sign_in_short">Sign in</string>
+    <string name="login_remember_me">Remember Me</string>
+    <string name="login_auto_login">Auto Login</string>
+    <string name="login_action_sign_in">Sign in</string>
+    <string name="login_checking">Checking…</string>
+    <string name="login_field_required">required</string>
+    <string name="login_forgot_password">Forgot Password?</string>
+    <string name="login_field_short_seconds">s</string>
+    <string name="login_forgot_password_link_color">#FF5722</string>
+    <string name="login_info_email_sent">Please Check Your email</string>
+    <string name="login_info_email_not_verified">Email is not verified yet. Resend verification email?</string>
+    <string name="login_error_auth_failed">Authentication Failed</string>
+    <string name="login_error_email_empty">Email Is Empty</string>
+    <string name="login_notification_email_sent">Email Is Sent</string>
+    <string name="login_notification_email_not_verified">Your email is not verified yet.</string>
+    <string name="login_log_sign_in">signIn:</string>
+    <string name="login_log_sign_in_with_email_success">signInWithEmail: success</string>
+    <string name="login_log_sign_in_with_email_failure">signInWithEmail: failure</string>
+
 </resources>
