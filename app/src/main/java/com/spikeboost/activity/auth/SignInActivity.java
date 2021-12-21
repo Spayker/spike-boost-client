@@ -1,6 +1,5 @@
-package com.spikeboost.login;
+package com.spikeboost.activity.auth;
 
-import android.graphics.Paint;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
@@ -8,26 +7,20 @@ import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.spikeboost.R;
+import com.spikeboost.sensor.SensorDataGrabber;
 
 /**
  * A login screen that offers login via email/password.
  *
  * @author  Spayker
  * @version 1.0
- * @since   3/6/2019
+ * @since   12/21/2021
  */
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener, TextWatcher,
+public class SignInActivity extends AppCompatActivity implements View.OnClickListener, TextWatcher,
         CompoundButton.OnCheckedChangeListener {
 
-    // tag field is used for logging sub system to identify from coming logs were created
-    private static final String TAG = LoginActivity.class.getSimpleName();
-
-    // UI references.
-    private ProgressBar progressBar;
 
 
     /**
@@ -42,15 +35,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
         setTitle(R.string.login_title_activity);
 
-        progressBar = findViewById(R.id.login_progressBar_cyclic);
-        progressBar.setVisibility(View.INVISIBLE);
-
         // Views
-        TextView mForgotPasswordView = findViewById(R.id.forgot_password);
-        mForgotPasswordView.setPaintFlags(mForgotPasswordView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        // TextView mForgotPasswordView = findViewById(R.id.forgot_password);
+        // mForgotPasswordView.setPaintFlags(mForgotPasswordView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         // Buttons
-        findViewById(R.id.email_sign_in_button).setOnClickListener(this);
+        // findViewById(R.id.email_sign_in_button).setOnClickListener(this);
+
+        //// business logic init
+
+        // sensor API
+        final SensorDataGrabber sensorDataGrabber = new SensorDataGrabber(getApplicationContext());
+        sensorDataGrabber.displayAvailableSensors();
+
     }
 
     /**
@@ -84,40 +81,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
 
-    /**
-     * Shows progress dialog while backend action is in progress.
-     **/
-    public void showProgressDialog() {
-        progressBar.setVisibility(View.VISIBLE);
-    }
-
-    /**
-     * Hides progress dialog from screen.
-     **/
-    public void hideProgressDialog() {
-        progressBar.setVisibility(View.INVISIBLE);
-    }
-
-    /**
-     * Performs Sign In operation.
-     *
-     * @param login a String object which will be checked during authorization procedure
-     * @param password     a String object which will be checked during authorization procedure
-     **/
-    public void signIn(String login, String password) {
-
-    }
-
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-    }
-
-    public void initForgotPasswordCountTimer() {
-
-    }
-
-    public void onForgotPasswordClick(View view) {
 
     }
 

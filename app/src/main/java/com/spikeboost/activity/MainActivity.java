@@ -1,8 +1,10 @@
-package com.spikeboost;
+package com.spikeboost.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.spikeboost.R;
 
 public class MainActivity extends AppCompatActivity {
 
