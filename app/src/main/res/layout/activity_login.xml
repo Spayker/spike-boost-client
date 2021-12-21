@@ -107,7 +107,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.1"
                     android:autoLink="all"
-                    android:onClick="onForgotPasswordClick"
                     android:text="@string/login_forgot_password"
                     android:textAlignment="textEnd"
                     android:textColor="@color/bright_orange"
