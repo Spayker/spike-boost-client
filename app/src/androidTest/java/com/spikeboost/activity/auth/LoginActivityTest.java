@@ -1,4 +1,4 @@
-package com.spikeboost.login;
+package com.spikeboost.activity.auth;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -10,8 +10,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 public class LoginActivityTest {
 
     @Rule
-    public ActivityScenarioRule<LoginActivity> loginActivityRule =
-            new ActivityScenarioRule<>(LoginActivity.class);
+    public ActivityScenarioRule<SignInActivity> loginActivityRule =
+            new ActivityScenarioRule<>(SignInActivity.class);
 
     @Test
     public void click_Back_Button_Shows_LoginActivity(){
