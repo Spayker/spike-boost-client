@@ -32,8 +32,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        setTitle(R.string.login_title_activity);
+        setContentView(R.layout.activity_signin);
+        setTitle(R.string.signin_title_activity);
 
         // Views
         // TextView mForgotPasswordView = findViewById(R.id.forgot_password);

@@ -45,7 +45,7 @@
                     android:id="@+id/login_form_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/login_prompt_email"
+                    android:hint="@string/signin_prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true" />
@@ -62,14 +62,14 @@
                     android:id="@+id/login_form_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/login_prompt_password"
+                    android:hint="@string/signin_prompt_password"
                     android:imeActionId="6"
-                    android:imeActionLabel="@string/login_action_sign_in_short"
+                    android:imeActionLabel="@string/signin_action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:autofillHints="@string/login_prompt_password" />
+                    android:autofillHints="@string/signin_prompt_password" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,13 +77,13 @@
                 android:id="@+id/login_form_rememberMe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/login_remember_me" />
+                android:text="@string/signin_remember_me" />
 
             <CheckBox
                 android:id="@+id/login_form_autologin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/login_auto_login" />
+                android:text="@string/signin_auto_login" />
 
             <Button
                 android:id="@+id/email_sign_in_button"
@@ -93,7 +93,7 @@
                 android:onClick="onClick"
                 android:theme="@style/RegisterAccentButton"
                 style="@style/Widget.AppCompat.Button.Colored"
-                android:text="@string/login_action_sign_in"
+                android:text="@string/signin_action_sign_in"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -107,7 +107,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.1"
                     android:autoLink="all"
-                    android:text="@string/login_forgot_password"
+                    android:text="@string/signin_forgot_password"
                     android:textAlignment="textEnd"
                     android:textColor="@color/bright_orange"
                     android:gravity="end" />
