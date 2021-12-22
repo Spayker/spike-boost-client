@@ -1,5 +1,6 @@
 package com.spikeboost.activity.auth;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.CompoundButton;
 
 import com.spikeboost.R;
+import com.spikeboost.activity.MainActivity;
 import com.spikeboost.sensor.SensorDataGrabber;
 
 /**
@@ -66,8 +68,9 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
      *             ( class represents the basic building block for user interface components )
      **/
     @Override
-    public void onClick(View view) {
-
+    public void onClick(final View view) {
+        final Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -93,7 +96,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onBackPressed() {
-
+        final Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
 }
