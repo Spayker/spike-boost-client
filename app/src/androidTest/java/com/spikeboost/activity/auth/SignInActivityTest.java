@@ -3,6 +3,7 @@ package com.spikeboost.activity.auth;
 import com.spikeboost.R;
 import com.spikeboost.activity.MainActivity;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -31,6 +32,11 @@ public class SignInActivityTest {
     @Before
     public void before() {
         Intents.init();
+    }
+
+    @After
+    public void after() {
+        Intents.release();
     }
 
     @Test
